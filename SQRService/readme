@@ -1,0 +1,4 @@
+
+javac com/misoo/service/Sqr01.java
+
+javah -classpath . -jni com.misoo.service.Sqr01
