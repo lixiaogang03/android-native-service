@@ -7,7 +7,7 @@
 #include <stdint.h>
 #include <sys/types.h>
 
-#include "ISQRSStub.h"
+#include "../lib/ISQRSStub.h"
 
 namespace android {
 

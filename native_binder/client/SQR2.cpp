@@ -7,7 +7,6 @@
 #include <cutils/log.h>
 
 #include "SQR2.h"
-#include "ISQRS.h"
 
 namespace android {
 

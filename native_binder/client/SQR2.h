@@ -1,7 +1,7 @@
 
 // SQR2.h
 
-#include "ISQRS.h"
+#include "../lib/ISQRS.h"
 
 namespace android {
 
