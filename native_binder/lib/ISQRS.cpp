@@ -14,11 +14,13 @@ enum {
 };
 
 
-int BpSQRS::square(const int& n) {
+int BpSQRS::square(const int& n, const sp<ICallback>& callback) {
 
     Parcel data, reply;
 
     data.writeInt32(n);
+
+    data.writeStrongBinder(IInterface::asBinder(callback)); //callback
 
     ALOGV("BpSQRService::create remote()->transact()\n");
 

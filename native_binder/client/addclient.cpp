@@ -12,7 +12,7 @@ int main(int argc, char** argv) {
 
     SQR2 *sqr = new SQR2();
 
-    int num1 = sqr->square(2);
+    int num1 = sqr->square(2, sqr);
 
     printf("square(2)=%d\n", num1);
 

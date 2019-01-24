@@ -5,8 +5,10 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_SRC_FILES:= ./lib/ISQRSStub.cpp \
-                  ./lib/ISQRS.cpp
+LOCAL_SRC_FILES:= ./lib/ISQRS.cpp \
+                  ./lib/ISQRSStub.cpp \
+                  ./lib/ICallback.cpp \
+                  ./lib/ICallbackStub.cpp
 
 LOCAL_SHARED_LIBRARIES:= libutils libbinder liblog
 

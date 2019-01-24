@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 
+#include <utils/String16.h>
 #include <binder/IServiceManager.h>
 
 #include <cutils/log.h>
@@ -25,8 +26,16 @@ int SQRService2::instantiate() {
     return r;
 }
 
-int SQRService2::square(const int& n) {
+int SQRService2::square(const int& n, const sp<ICallback>& callback) {
     printf("SQRService2::square(%d)\n", n);
+
+    int errorCode = -1;
+
+    String16 errorMessage = String16("Permission deny");
+
+    printf("SQRService2::callback->onError\n");
+    callback->onError(errorCode, errorMessage);
+
     return n * n;
 }
 

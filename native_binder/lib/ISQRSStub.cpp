@@ -18,6 +18,7 @@ enum {
 };
 
 //--------------------------------------------------
+
 status_t BnSQRS::onTransact(uint32_t code, const Parcel& data, Parcel* reply, uint32_t flags) {
 
     switch (code) {
@@ -25,7 +26,11 @@ status_t BnSQRS::onTransact(uint32_t code, const Parcel& data, Parcel* reply, ui
         case SQUARE:
              {
                  int num = data.readInt32();
-                 int k = square(num);
+
+                 sp<ICallback> callback = interface_cast<ICallback>(data.readStrongBinder()); //callback
+
+                 int k = square(num, callback);
+
                  reply->writeInt32(k);
                  return NO_ERROR;
              }

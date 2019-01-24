@@ -5,6 +5,7 @@
 #include <binder/IPCThreadState.h>
 
 #include <cutils/log.h>
+#include <utils/String16.h>
 
 #include "SQR2.h"
 
@@ -26,17 +27,16 @@ const sp<ISQRS> SQR2::getSQRService() {
 
 }
 
+//--------------------------------------------------------------------
 
-int SQR2::square(int n) {
+int SQR2::square(int n, const sp<ICallback>& callback) {
 
     int k = 0;
-
-    //getSQRService();
 
     const sp<ISQRS> isqrs = getSQRService();
 
     if (isqrs != 0) {
-        k = isqrs->square(n);
+        k = isqrs->square(n, callback);
     }
 
     return k;
@@ -67,6 +67,18 @@ int SQR2::add(int x, int y) {
     }
 
     return k;
+
+}
+
+//----------------------CallBack--------------------
+
+void SQR2::onError(int errorCode, const String16& errorMessage) {
+
+    printf("errorCode: %d\n", errorCode);
+
+    printf("errorMessage: %s\n", String8(errorMessage).string());
+
+    return;
 
 }
 

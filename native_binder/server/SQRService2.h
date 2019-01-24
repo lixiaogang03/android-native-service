@@ -8,6 +8,7 @@
 #include <sys/types.h>
 
 #include "../lib/ISQRSStub.h"
+#include "../lib/ICallback.h"
 
 namespace android {
 
@@ -17,7 +18,7 @@ class SQRService2 : public BnSQRS {
 
         static int instantiate();
 
-        virtual int square(const int& n);
+        virtual int square(const int& n, const sp<ICallback>& callback);
 
         virtual int mul(const int& n, const int& m);
 

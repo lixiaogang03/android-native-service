@@ -1,12 +1,14 @@
 
 // ISQRS.h
 
+#ifndef ANDROID_MISOO_ISQRS_SERVICE_H
+#define ANDROID_MISOO_ISQRS_SERVICE_H
+
 #include <utils/RefBase.h>
 #include <binder/IInterface.h>
 #include <binder/Parcel.h>
 
-#ifndef ANDROID_MISOO_ISQRS_SERVICE_H
-#define ANDROID_MISOO_ISQRS_SERVICE_H
+#include "ICallback.h"
 
 namespace android {
 
@@ -18,7 +20,7 @@ class ISQRS: public IInterface {
 
         DECLARE_META_INTERFACE(SQRS);
 
-        virtual int square(const int& n) = 0;
+        virtual int square(const int& n, const sp<ICallback>& callback) = 0;
 
         virtual int mul(const int& n, const int& m) = 0;
 
@@ -34,7 +36,7 @@ class BpSQRS: public BpInterface<ISQRS> {
 
         BpSQRS(const sp<IBinder>& impl): BpInterface<ISQRS>(impl) {}
 
-        virtual int square(const int& n);
+        virtual int square(const int& n, const sp<ICallback>& callback);
 
         virtual int mul(const int& n, const int& m);
 

@@ -1,19 +1,19 @@
 
-// ISQRSStub.h
+// ICallbackStub.h
 
-#ifndef ANDROID_MISOO_ISQRSStub_H
-#define ANDROID_MISOO_ISQRSStub_H
+#ifndef ANDROID_ISQRS_ICALLBACK_STUB_H
+#define ANDROID_ISQRS_ICALLBACK_STUB_H
 
+#include <utils/String16.h>
 #include <utils/RefBase.h>
 #include <binder/IInterface.h>
 #include <binder/Parcel.h>
 
-#include "ISQRS.h"
 #include "ICallback.h"
 
 namespace android {
 
-class BnSQRS: public BnInterface<ISQRS> {
+class BnCallback: public BnInterface<ICallback> {
 
     public:
 
